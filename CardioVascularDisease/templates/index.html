@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <title>Cardio Vascular Disease Predection </title>
+
+  <style>
+	body{
+	    background-image:url(data:image/jpeg;base64,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);
+	    background-size: cover;
+	    background-attachment: fixed;
+	}
+  </style>
+
+</head>
+
+<body background="https://images.unsplash.com/photo-1562091156-b52b1462dead?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+  
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Home</a>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('bulk') }}">click for bulk predection </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <div id="body">
+        <div class='background'>
+            <div class="text1">
+                <h3>WELCOME TO CARDIOVASCULAR DISEASE PREDECTION POWERED BY MACHINE LEARNING</h1>
+
+            </div>
+        </div>
+    
+     <div class=form>
+
+        <form action="/predict" method="post">
+	    <label><b>Enter the age of person() :</b></label><br>
+            <input type="number" placeholder="Age" id='age' name='age'><br>
+	    
+	    <label><b>Enter the height of person(cm) :</b></label><br>
+            <input type="number" placeholder="Height" id='height' name='height'><br>
+	    
+	    <label><b>Enter the weight of person(Kg) :</b></label><br>
+            <input type="number" placeholder="Weight" id='weight' name='weight'><br>
+
+
+
+            <label class='select_label'><b>Gender of person? </b>  </label>
+            <Select id='Gender' name='Gender'>
+                <option value='1'>Male</option>
+                <option value="2">Female</option>
+            </Select><br>
+
+	    <label><b>Enter the of Systolic blood pressure of person(ap_hi) :</b></label><br>
+            <input type="number" placeholder="ap_hi" id='ap_hi' name='ap_hi'><br>
+
+	    <label><b>Enter the of Diastolic  blood pressure of person(ap_lo) :</b></label><br>
+            <input type="number" placeholder="ap_lo" id='ap_lo' name='ap_lo'><br>
+
+            <label class='select_label'><b>What is the Cholestrol estimate of person? </b>  </label>
+            <Select id='Cholestrol' name='Cholestrol'>
+                <option value='1'>Normal</option>
+                <option value="2">Above Normal</option>
+		<option value="2">Well Above Normal</option>
+            </Select><br>
+
+            <label class='select_label'><b>What is the Glucose estimate of person? </b>  </label>
+            <Select id='Glucose' name='Glucose'>
+                <option value='1'>Normal</option>
+                <option value="2">Above Normal</option>
+		<option value="2">Well Above Normal</option>
+            </Select><br>
+
+            <label class='select_label'><b>Person Smoking? </b>  </label>
+            <Select id='Smoking' name='Smoking'>
+                <option value='0'>NO</option>
+                <option value="1">YES</option>
+
+            </Select><br>
+
+            <label class='select_label'><b>Person consuming Alcohol? </b>  </label>
+            <Select id='Alcohol' name='Alcohol'>
+                <option value='0'>NO</option>
+                <option value="1">YES</option>
+
+            </Select><br>
+
+            <label class='select_label'><b>Person's Physical Activity? </b>  </label>
+            <Select id='Glucose' name='Glucose'>
+                <option value='0'>NO</option>
+                <option value="1">YES</option>
+
+            </Select><br>
+            <button id=submitbtn type="submit" value="Submit">Submit</button><br>
+        </form>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
