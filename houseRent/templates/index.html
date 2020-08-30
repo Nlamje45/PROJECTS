@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>House Price Predection</title>
+</head>
+<style></style>
+<body background="https://images.unsplash.com/photo-1494028745271-bf4d3ad0e7ff?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1920">
+    
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Home</a>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/bulk">click for bulk predection <span class="sr-only">(current)</span></a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <div id="body">
+        <div class='background'>
+            <div class="text1">
+                <h3>WELCOME TO HOUSE RENTAL PRICE PRIDICTION POWERED BY MACHINE LEARNING</h1>
+
+            </div>
+        </div>
+
+
+
+
+        <div class=form>
+
+            <form action="/predict" method="post">
+                <label class='select_label'><b>Type of Housing you want? </b>  </label>
+
+                <Select id='type' name='type'>
+                    <option value='1'>Appartment</option>
+                    <option value="2">House</option>
+                    <option value="3">Townhouse</option>
+                    <option value="4">Condo</option>
+                    <option value="5">Duplex</option>
+                    <option value="6">Manufactured</option>
+                    <option value="7">Cottage/cabin</option>
+                    <option value="8">Loaft</option>
+                    <option value="9">Flat</option>
+                    <option value="10">In law</option>
+                    <option value="11">Land</option>
+                    <option value="12">Assited Living</option>
+                    
+                </Select><br>
+                <label><b>Enter the size of the room(sqfeet) :</b></label><br>
+                <input type="number" placeholder="Enter the size of the room(sqfeet)" id='sqfeet' name='sqfeet'><br>
+                
+                <label><b>Enter number of Bedrooms Required :</b></label><br>
+                <input type="number" placeholder="Enter number of Bedrooms Required" id='beds' name='beds'><br>
+
+                <label><b>Enter number of Bathrooms Required :</b></label><br>
+                <input type="number" placeholder="Enter number of Bathrooms Required" id='baths' name='baths'><br>
+
+                <label class='select_label'><b>Want a house where cats are allowed?</b> </label>
+                <Select id='cats_allowed' name='cats_allowed'>
+                    <option value='1'>Yes</option>
+                    <option selected value="0">No</option>
+                </Select><br>
+
+                <label class='select_label'><b>Want a house where dogs are allowed?</b> </label>
+                <Select id='dogs_allowed' name='dog_allowed'>
+                    <option value='1'>Yes</option>
+                    <option selected value="0">No</option>
+                </Select><br>
+
+                <label class='select_label'><b>Want a house where smoking is allowed?</b> </label>
+                <Select id='smoking_allowed' name='smoking_allowed'>
+                    <option value='1'>Yes</option>
+                    <option selected value="0">No</option>
+                </Select><br>
+
+                <label class='select_label'><b>Want a house where Wheelchair can be accesed?</b> </label>
+                <Select id='wheelchair_access' name='wheelchair_access'>
+                    <option value='1'>Yes</option>
+                    <option selected value="0">No</option>
+                </Select><br>
+
+                <label class='select_label'><b>Want a house where Electric car charge point can be accesed?</b> </label>
+                <Select id='electric_vehicle_charge' name='electric_vehicle_charge'>
+                    <option value='1'>Yes</option>
+                    <option selected value="0">No</option>
+                </Select><br>
+
+                <label class='select_label'><b>Want a house fully furnished?</b> </label>
+                <Select id='comes_furnished' name='comes_furnished'>
+                    <option value='1'>Yes</option>
+                    <option selected value="0">No</option>
+                </Select><br>
+
+                <label class='select_label'><b>Type of Laundry options you want? </b>  </label>
+                <Select id='laundry_options' name='laundry_options'>
+                    <option value='1'>w/d in unit</option>
+                    <option value="2">w/d hookups</option>
+                    <option value="3">laundry on site</option>
+                    <option value="4">laundry in building </option>
+                    <option value="5">No laundry on site</option>
+                </Select><br>
+                
+                <label class='select_label'><b>Type of Parking options you want? </b> </label>
+                <Select id='parking_options' name='parking_options'>
+                    <option value='1'>off-street parking</option>
+                    <option value="2">carport</option>
+                    <option value="3">attached garage</option>
+                    <option value="4">detached garage</option>
+                    <option value="5">street parking</option>
+                    <option value="6">no parking </option>
+                    <option value="6">valet parking </option>
+                </Select><br>
+                    
+                <label><b>Enter the latitude of area you want(from google maps) :</b></label>
+                <input type="number" placeholder="Latitude" id='lat' name='lat'><br>
+
+                <label><b>Enter the longitude of area you want(from google maps) :</b></label>
+                <input type="number" placeholder="Longitude" id='long' name='long'><br>
+
+                <button id=submitbtn type="submit" value="Submit">Submit</button><br>
+            </form>
+
+        </div>
+        <div id=result>
+            <p>{{ predect_txt }}</p>
+        </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
